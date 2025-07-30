@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rachel Brooks">
+
+<title>Vermilion-Sunset-Otolith-Morphology-Comparison</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="VRML-SUNS-Otolith-Morphology_files/libs/clipboard/clipboard.min.js"></script>
+<script src="VRML-SUNS-Otolith-Morphology_files/libs/quarto-html/quarto.js"></script>
+<script src="VRML-SUNS-Otolith-Morphology_files/libs/quarto-html/popper.min.js"></script>
+<script src="VRML-SUNS-Otolith-Morphology_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="VRML-SUNS-Otolith-Morphology_files/libs/quarto-html/anchor.min.js"></script>
+<link href="VRML-SUNS-Otolith-Morphology_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="VRML-SUNS-Otolith-Morphology_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="VRML-SUNS-Otolith-Morphology_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="VRML-SUNS-Otolith-Morphology_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="VRML-SUNS-Otolith-Morphology_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vermilion-Sunset-Otolith-Morphology-Comparison</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rachel Brooks </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="load-shaper" class="level2">
+<h2 class="anchored" data-anchor-id="load-shaper">Load ShapeR</h2>
+<p>This chunk load shapeR and retrieve data, as well as sets project path folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load shape R and retrieve data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at C:/Users/rachel.brooks/Documents/GitHub/Otolith-Morphometric-Project</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shapeR)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Set project path to the folder 'ShapeAnalysis'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">&lt;-</span> <span class="fu">shapeR</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">project.path =</span> <span class="fu">here</span>(<span class="st">"ShapeR"</span>, <span class="st">"ShapeAnalysis"</span>), </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">info.file =</span> <span class="st">"VRML-SUNS-subset.csv"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="creating-a-shaper-object-outline-from-image-files" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-shaper-object-outline-from-image-files">Creating a ShapeR object outline from image files</h2>
+<p><strong>detect.outline():</strong> Obtain the outline of each otolith. The outlines are detected by first transforming the images into gray-scale. The images are then binarized using a threshold pixel value (intensity threshold) which can be defined by the user. The outlines are then collected automatically from all images in the folder ‘Fixed’. Modification of the outlines are stored in different slots within the shape data object.</p>
+<ul>
+<li><p><strong>threshold</strong> argument is used to distinguish the white otolith from black background (essentially increases contrast)</p></li>
+<li><p><strong>write.outline.w.org</strong> argument determines whether the detected outline should be written on top of the original image (TRUE) or not (FALSE) in the folder ‘Original_with_outline’ which shapeR makes automatically and places into the folder ‘ShapeAnalysis’. <em>It is recommended to run the images with the write.outline.w.org = TRUE the first time the images are run for quality checking, to see if the outline fits the original image from the microscope.</em></p>
+<ul>
+<li><p>If an error occurs, or the outline is of low quality, the outline can be removed from the shapeR instance:</p>
+<blockquote class="blockquote">
+<p><em>shape = remove.outline(shape,“IC”,“403_54”)</em></p>
+</blockquote></li>
+<li><p>To view an individual otolith with outline:</p>
+<blockquote class="blockquote">
+<p><em>show.original.with.outline(shape,“IC”,“403_54”)</em></p>
+</blockquote></li>
+</ul></li>
+<li><p><strong>smoothout</strong> argument calculates a weighted moving average over three succesive coordinate points to smooth multiple outlines. The number of iterations (ex: n = 100) provided by the user is the maximum number of iterations of smoothing. This argument is used to reduce high frequency pixel noise around the outlines which can corrupt Fourier or Wavelength analysis.</p></li>
+<li><p><strong>generateShapeCoefficients</strong> argument extracts the shape coefficient from the captured outlines</p></li>
+<li><p><strong>enrich.master.list</strong> argument connects data file containing information on origin and size of the fish to the outlines</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trace orange outline around otolith - saves in Original_with_outline</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">=</span> <span class="fu">detect.outline</span>(shape, <span class="at">threshold =</span> <span class="fl">0.20</span>, <span class="at">write.outline.w.org =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |                                                                      |   0%</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |==                                                                    |   3%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |====                                                                  |   5%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=====                                                                 |   8%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=======                                                               |  10%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=========                                                             |  13%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===========                                                           |  15%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=============                                                         |  18%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |==============                                                        |  21%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |================                                                      |  23%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |==================                                                    |  26%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |====================                                                  |  28%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |======================                                                |  31%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=======================                                               |  33%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=========================                                             |  36%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===========================                                           |  38%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=============================                                         |  41%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===============================                                       |  44%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |================================                                      |  46%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |==================================                                    |  49%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |====================================                                  |  51%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |======================================                                |  54%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=======================================                               |  56%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=========================================                             |  59%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===========================================                           |  62%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=============================================                         |  64%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===============================================                       |  67%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |================================================                      |  69%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |==================================================                    |  72%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |====================================================                  |  74%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |======================================================                |  77%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |========================================================              |  79%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=========================================================             |  82%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===========================================================           |  85%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=============================================================         |  87%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |===============================================================       |  90%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |=================================================================     |  92%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |==================================================================    |  95%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |====================================================================  |  97%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(oldpar): calling par(new=TRUE) with no plot</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Smooth outlines </span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">=</span> <span class="fu">smoothout</span>(shape, <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract shape coefficient</span></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">=</span> <span class="fu">generateShapeCoefficients</span>(shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |====                                                                  |   5%
+  |                                                                            
+  |=====                                                                 |   8%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |=========                                                             |  13%
+  |                                                                            
+  |===========                                                           |  15%
+  |                                                                            
+  |=============                                                         |  18%
+  |                                                                            
+  |==============                                                        |  21%
+  |                                                                            
+  |================                                                      |  23%
+  |                                                                            
+  |==================                                                    |  26%
+  |                                                                            
+  |====================                                                  |  28%
+  |                                                                            
+  |======================                                                |  31%
+  |                                                                            
+  |=======================                                               |  33%
+  |                                                                            
+  |=========================                                             |  36%
+  |                                                                            
+  |===========================                                           |  38%
+  |                                                                            
+  |=============================                                         |  41%
+  |                                                                            
+  |===============================                                       |  44%
+  |                                                                            
+  |================================                                      |  46%
+  |                                                                            
+  |==================================                                    |  49%
+  |                                                                            
+  |====================================                                  |  51%
+  |                                                                            
+  |======================================                                |  54%
+  |                                                                            
+  |=======================================                               |  56%
+  |                                                                            
+  |=========================================                             |  59%
+  |                                                                            
+  |===========================================                           |  62%
+  |                                                                            
+  |=============================================                         |  64%
+  |                                                                            
+  |===============================================                       |  67%
+  |                                                                            
+  |================================================                      |  69%
+  |                                                                            
+  |==================================================                    |  72%
+  |                                                                            
+  |====================================================                  |  74%
+  |                                                                            
+  |======================================================                |  77%
+  |                                                                            
+  |========================================================              |  79%
+  |                                                                            
+  |=========================================================             |  82%
+  |                                                                            
+  |===========================================================           |  85%
+  |                                                                            
+  |=============================================================         |  87%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |=================================================================     |  92%
+  |                                                                            
+  |==================================================================    |  95%
+  |                                                                            
+  |====================================================================  |  97%
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect data file 'FISH.csv' to the outlines</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">=</span> <span class="fu">enrich.master.list</span>(shape)</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save shape object</span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(shape, <span class="at">file =</span> <span class="st">"VRML-SUNS-subset.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mean-otolith-shape" class="level2">
+<h2 class="anchored" data-anchor-id="mean-otolith-shape">Mean otolith shape</h2>
+<ul>
+<li><p>plotWaveletShape argument plots the mean otolith shape using the Wavelet coefficients</p></li>
+<li><p>plotFourierShape argument plots the mean otolith shape using the Wavelet coefficients</p>
+<ul>
+<li>Can adjust parameter to an alternate variable depending on what you’re looking to compare (i.e., “sex”, “species”, etc.) - here we’re comparing species using the “PacFIN_Species_Code”</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot mean otolith shape using Wavelet coefficient </span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"wavelet_shape_plot.png"</span>, <span class="at">width =</span> <span class="dv">2500</span>, <span class="at">height =</span> <span class="dv">1500</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotWaveletShape</span>(shape, <span class="st">"PacFIN_Species_Code"</span>, <span class="at">show.angle =</span> <span class="cn">TRUE</span>, <span class="at">lwd =</span> <span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>png 
+  2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot mean otolith shape using Fourier coefficient</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"Fourier_shape_plot.png"</span>, <span class="at">width =</span> <span class="dv">2500</span>, <span class="at">height =</span> <span class="dv">1500</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotFourierShape</span>(shape, <span class="st">"PacFIN_Species_Code"</span>, <span class="at">show.angle =</span> <span class="cn">TRUE</span>, <span class="at">lwd =</span> <span class="dv">2</span>,<span class="at">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>png 
+  2 </code></pre>
+</div>
+</div>
+</section>
+<section id="morphometric-measurements" class="level2">
+<h2 class="anchored" data-anchor-id="morphometric-measurements">Morphometric measurements</h2>
+<ul>
+<li><p>First, you will nedd to extract the <code>master.list</code> data frame from the <code>shape</code> object and assign it to a new variable. I called it <code>fish_data</code>. Now you can work with <code>fish_data</code> as a regular data frame in your analyses or plotting.</p></li>
+<li><p><strong>getMeasurements</strong> argument allows you to collect all otolith measurements (otolith length, width, perimeter, and area) from unstandardized otoliths</p>
+<ul>
+<li><p>Feret length and width are concepts used in image analysis to describe the maximum distance between two parallel lines tangent to an object - measuring the longest distance across an object, regardless of orientation.</p></li>
+<li><p>For each species, the mean for the variables in the summary statistics (area, length, perimeter, width) can be calculated:</p>
+<blockquote class="blockquote">
+<p><em>tapply(getMeasurements(shape)$otolith.area, getMasterlist(shape)$PacFIN_Species_Code, mean)</em></p>
+</blockquote></li>
+</ul></li>
+<li><p><strong>getStdMeasurements</strong> argument allows you to collect all otolith measurements (otolith length, width, perimeter, and area) from standardized otoliths</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>fish_data <span class="ot">&lt;-</span> shape<span class="sc">@</span>master.list</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get length, width, area, perimeter of otolith</span></span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>measurements <span class="ot">&lt;-</span> <span class="fu">getMeasurements</span>(shape)</span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean of the otolith morphometric variable: </span></span>
+<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Otolith area</span></span>
+<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="fu">getMeasurements</span>(shape)<span class="sc">$</span>otolith.area, </span>
+<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>       <span class="fu">getMasterlist</span>(shape)<span class="sc">$</span>PacFIN_Species_Code, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    SUNS     VRML 
+102.6931 113.1198 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Otolith perimeter</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="fu">getMeasurements</span>(shape)<span class="sc">$</span>otolith.perimeter, </span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">getMasterlist</span>(shape)<span class="sc">$</span>PacFIN_Species_Code, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    SUNS     VRML 
+44.91544 46.91143 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Otolith length</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="fu">getMeasurements</span>(shape)<span class="sc">$</span>otolith.length, </span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">getMasterlist</span>(shape)<span class="sc">$</span>PacFIN_Species_Code, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    SUNS     VRML 
+17.24547 17.84075 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Otolith width</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="fu">getMeasurements</span>(shape)<span class="sc">$</span>otolith.width, </span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">getMasterlist</span>(shape)<span class="sc">$</span>PacFIN_Species_Code, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    SUNS     VRML 
+8.770517 9.145220 </code></pre>
+</div>
+</div>
+</section>
+<section id="adjusting-coefficients-for-fish-length-and-waveletfourier-reconstruct" class="level2">
+<h2 class="anchored" data-anchor-id="adjusting-coefficients-for-fish-length-and-waveletfourier-reconstruct">Adjusting coefficients for fish length and wavelet/fourier reconstruct</h2>
+<ul>
+<li><p><strong>stdCoefs</strong> argument evaluates each Wavelet and Fourier coefficient and adjusts the otolith shape with respect to allometric relationships with the fish lengths.</p>
+<ul>
+<li><p>Those coefficients which show interaction (P&lt;0.05), between population and length, are omitted automatically.</p></li>
+<li><p>In order to account for increased alpha error due to multiple testing of the different coefficients it is possible to conduct the Bonferroni adjustment</p></li>
+</ul></li>
+<li><p><strong>estimate.outline.reconstruction</strong> argument estimates the quality of the Wavelet and Fourier reconstruction by comparing how it deviates from otolith outline</p>
+<ul>
+<li>The quality increases with the increase of Wavelet/Fourier coefficients used</li>
+</ul></li>
+<li><p><strong>plotWavelet</strong> argument can be used to inspect how the variation in the Wavelet coefficients is dependent on the position along the outline. The proportion of variation among groups, the interclass correlation (ICC), gives further information about the partition of the variation along the outline</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">=</span> <span class="fu">stdCoefs</span>(shape, <span class="at">classes =</span> <span class="st">"PacFIN_Species_Code"</span>, <span class="st">"Wgt_g"</span>, </span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">bonferroni =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Wavelet standardization. No coefficients removed
+Fourier standardization. No coefficients removed
+Measurement standardization. Removed coefficients: 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>est.list <span class="ot">=</span> <span class="fu">estimate.outline.reconstruction</span>(shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |====                                                                  |   5%
+  |                                                                            
+  |=====                                                                 |   8%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |=========                                                             |  13%
+  |                                                                            
+  |===========                                                           |  15%
+  |                                                                            
+  |=============                                                         |  18%
+  |                                                                            
+  |==============                                                        |  21%
+  |                                                                            
+  |================                                                      |  23%
+  |                                                                            
+  |==================                                                    |  26%
+  |                                                                            
+  |====================                                                  |  28%
+  |                                                                            
+  |======================                                                |  31%
+  |                                                                            
+  |=======================                                               |  33%
+  |                                                                            
+  |=========================                                             |  36%
+  |                                                                            
+  |===========================                                           |  38%
+  |                                                                            
+  |=============================                                         |  41%
+  |                                                                            
+  |===============================                                       |  44%
+  |                                                                            
+  |================================                                      |  46%
+  |                                                                            
+  |==================================                                    |  49%
+  |                                                                            
+  |====================================                                  |  51%
+  |                                                                            
+  |======================================                                |  54%
+  |                                                                            
+  |=======================================                               |  56%
+  |                                                                            
+  |=========================================                             |  59%
+  |                                                                            
+  |===========================================                           |  62%
+  |                                                                            
+  |=============================================                         |  64%
+  |                                                                            
+  |===============================================                       |  67%
+  |                                                                            
+  |================================================                      |  69%
+  |                                                                            
+  |==================================================                    |  72%
+  |                                                                            
+  |====================================================                  |  74%
+  |                                                                            
+  |======================================================                |  77%
+  |                                                                            
+  |========================================================              |  79%
+  |                                                                            
+  |=========================================================             |  82%
+  |                                                                            
+  |===========================================================           |  85%
+  |                                                                            
+  |=============================================================         |  87%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |=================================================================     |  92%
+  |                                                                            
+  |==================================================================    |  95%
+  |                                                                            
+  |====================================================================  |  97%
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outline.reconstruction.plot</span>(est.list, <span class="at">max.num.harmonics =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotWavelet</span>(shape, <span class="at">level =</span> <span class="dv">5</span>, <span class="at">class.name =</span> <span class="st">"PacFIN_Species_Code"</span>, </span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">useStdcoef =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="morphometric-comparison-plots" class="level2">
+<h2 class="anchored" data-anchor-id="morphometric-comparison-plots">Morphometric comparison plots</h2>
+<ul>
+<li><p>Box and whisker plots comparing the four otolith morphometrics between vermilion and sunset</p></li>
+<li><p>Statistical analysis:</p>
+<ul>
+<li><p>Before comparing each group check data for distribution and variance</p></li>
+<li><p>Compare groups using either a wilcoxon rank-sum test (non-normal) or student’s t-test (normal and equal variance)</p></li>
+</ul></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Recommended Test</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Two groups, non-normal data</td>
+<td>Wilcoxon rank-sum test</td>
+</tr>
+<tr class="even">
+<td>Two groups, normal + equal var</td>
+<td>Student’s t-test</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'patchwork' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define morphometric columns</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>morphometrics <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"otolith.length"</span>, <span class="st">"otolith.width"</span>, <span class="st">"otolith.area"</span>, <span class="st">"otolith.perimeter"</span>)</span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape data</span></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> fish_data <span class="sc">%&gt;%</span></span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, <span class="fu">all_of</span>(morphometrics)) <span class="sc">%&gt;%</span></span>
+<span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">all_of</span>(morphometrics),</span>
+<span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"morphometric"</span>,</span>
+<span id="cb112-9"><a href="#cb112-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb112-10"><a href="#cb112-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-11"><a href="#cb112-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of plots for each morphometric</span></span>
+<span id="cb112-12"><a href="#cb112-12" aria-hidden="true" tabindex="-1"></a>plots <span class="ot">&lt;-</span> long_data <span class="sc">%&gt;%</span></span>
+<span id="cb112-13"><a href="#cb112-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_split</span>(morphometric) <span class="sc">%&gt;%</span></span>
+<span id="cb112-14"><a href="#cb112-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(df) {</span>
+<span id="cb112-15"><a href="#cb112-15" aria-hidden="true" tabindex="-1"></a>    morph_name <span class="ot">&lt;-</span> <span class="fu">unique</span>(df<span class="sc">$</span>morphometric)</span>
+<span id="cb112-16"><a href="#cb112-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb112-17"><a href="#cb112-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb112-18"><a href="#cb112-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb112-19"><a href="#cb112-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb112-20"><a href="#cb112-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb112-21"><a href="#cb112-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(</span>
+<span id="cb112-22"><a href="#cb112-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb112-23"><a href="#cb112-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb112-24"><a href="#cb112-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> morph_name  <span class="co"># dynamic y-axis label</span></span>
+<span id="cb112-25"><a href="#cb112-25" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">+</span></span>
+<span id="cb112-26"><a href="#cb112-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(</span>
+<span id="cb112-27"><a href="#cb112-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb112-28"><a href="#cb112-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb112-29"><a href="#cb112-29" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb112-30"><a href="#cb112-30" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb112-31"><a href="#cb112-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-32"><a href="#cb112-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine plots with patchwork</span></span>
+<span id="cb112-33"><a href="#cb112-33" aria-hidden="true" tabindex="-1"></a><span class="fu">wrap_plots</span>(plots, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as high-res PNG</span></span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"otolith_morphometrics-comp-subset.png"</span>, <span class="at">plot =</span> <span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">6</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run t-test (normal distributed data) or wilcoxon rank-sum test to compare otolith shape/size among populations</span></span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rstatix' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rstatix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Normally distributed data</span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (metric <span class="cf">in</span> morphometrics) {</span>
+<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a>  formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(metric, <span class="st">"~ Species"</span>))</span>
+<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> fish_data <span class="sc">%&gt;%</span></span>
+<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t_test</span>(formula)</span>
+<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-9"><a href="#cb117-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">---"</span>, metric, <span class="st">"---</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb117-10"><a href="#cb117-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(result)</span>
+<span id="cb117-11"><a href="#cb117-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-12"><a href="#cb117-12" aria-hidden="true" tabindex="-1"></a>  t_test_results[[metric]] <span class="ot">&lt;-</span> result</span>
+<span id="cb117-13"><a href="#cb117-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+--- otolith.length ---
+# A tibble: 1 × 8
+  .y.            group1 group2       n1    n2 statistic    df      p
+* &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1 otolith.length sunset vermilion    18    21     -2.42  36.6 0.0204
+
+
+--- otolith.width ---
+# A tibble: 1 × 8
+  .y.           group1 group2       n1    n2 statistic    df       p
+* &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1 otolith.width sunset vermilion    18    21     -3.25  33.5 0.00266
+
+
+--- otolith.area ---
+# A tibble: 1 × 8
+  .y.          group1 group2       n1    n2 statistic    df         p
+* &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+1 otolith.area sunset vermilion    18    21     -4.51  32.0 0.0000824
+
+
+--- otolith.perimeter ---
+# A tibble: 1 × 8
+  .y.               group1 group2       n1    n2 statistic    df      p
+* &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1 otolith.perimeter sunset vermilion    18    21     -2.42  27.1 0.0227</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NOT normally distributed </span></span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>wilcox_results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (metric <span class="cf">in</span> morphometrics) {</span>
+<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>  formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste</span>(metric, <span class="st">"~ Species"</span>))</span>
+<span id="cb119-6"><a href="#cb119-6" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> fish_data <span class="sc">%&gt;%</span> </span>
+<span id="cb119-7"><a href="#cb119-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">wilcox_test</span>(formula)</span>
+<span id="cb119-8"><a href="#cb119-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb119-9"><a href="#cb119-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print summary</span></span>
+<span id="cb119-10"><a href="#cb119-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">---"</span>, metric, <span class="st">"---</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb119-11"><a href="#cb119-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(result)</span>
+<span id="cb119-12"><a href="#cb119-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb119-13"><a href="#cb119-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store result</span></span>
+<span id="cb119-14"><a href="#cb119-14" aria-hidden="true" tabindex="-1"></a>  wilcox_results[[metric]] <span class="ot">&lt;-</span> result</span>
+<span id="cb119-15"><a href="#cb119-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+--- otolith.length ---
+# A tibble: 1 × 7
+  .y.            group1 group2       n1    n2 statistic      p
+* &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+1 otolith.length sunset vermilion    18    21       107 0.0204
+
+
+--- otolith.width ---
+# A tibble: 1 × 7
+  .y.           group1 group2       n1    n2 statistic       p
+* &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 otolith.width sunset vermilion    18    21        84 0.00253
+
+
+--- otolith.area ---
+# A tibble: 1 × 7
+  .y.          group1 group2       n1    n2 statistic        p
+* &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 otolith.area sunset vermilion    18    21        60 0.000144
+
+
+--- otolith.perimeter ---
+# A tibble: 1 × 7
+  .y.               group1 group2       n1    n2 statistic      p
+* &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+1 otolith.perimeter sunset vermilion    18    21       122 0.0605</code></pre>
+</div>
+</div>
+</section>
+<section id="otolith-shape-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="otolith-shape-analysis">Otolith shape analysis</h2>
+<ul>
+<li><p>Load <strong>vegan package</strong> (used for multivariate ecological analyses</p></li>
+<li><p>Extract both the standardized wavelet coefficients (wavelet_data) and corresponding metadata (meta_data) - check that the number of rows (individuals) matches in both datasets.</p></li>
+<li><p>Perform Canonical Analysis of Principal Coordinates (CAP) to test how well otolith shape (wavelet data) can discriminate between species (can use ‘PacFIN_Species_Code’ or ‘Species’ column). I used euclidian distances between samples, since data are continuous measurements (wavelet coefficient shape descriptors) and euclidian preserves linear geometry.</p>
+<ul>
+<li><p><code>summary()</code>: Shows the proportion of variance explained by each CAP axis.</p></li>
+<li><p><code>anova()</code>: Tests overall significance of the CAP model.</p></li>
+<li><p><code>anova(..., by = "terms")</code>: Tests the significance of each term (e.g., species) individually.</p></li>
+</ul></li>
+<li><p>Make the CAP plot</p>
+<ul>
+<li><p>Plot the CAP results (no points initially, just axes).</p></li>
+<li><p>Adds colored points by species</p></li>
+<li><p>Adds a legend mapping colors to species.</p></li>
+<li><p>Extract CAP scores for each fish and store them with species labels for further plotting/analyses.</p></li>
+<li><p>Plot ellipses for each group - there is code to plot this for 1 SD and 95% CI.</p></li>
+<li><p>Use <code>ordispider()</code> to draw lines from group centroids to individual points.</p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'vegan' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: permute</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'permute' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract standardized wavelet coefficients</span></span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>wavelet_data <span class="ot">&lt;-</span> shape<span class="sc">@</span>wavelet.coef.std</span>
+<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract corresponding metadata (fish info)</span></span>
+<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a>meta_data <span class="ot">&lt;-</span> shape<span class="sc">@</span>master.list</span>
+<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure dimensions match</span></span>
+<span id="cb126-8"><a href="#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(wavelet_data)  <span class="co"># n rows = individuals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 39 63</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(meta_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  39 153</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CAP analysis</span></span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>cap_model <span class="ot">&lt;-</span> <span class="fu">capscale</span>(wavelet_data <span class="sc">~</span> PacFIN_Species_Code, <span class="at">data =</span> meta_data, <span class="at">distance =</span> <span class="st">"euclidean"</span>)</span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View summary</span></span>
+<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cap_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+capscale(formula = wavelet_data ~ PacFIN_Species_Code, data = meta_data,      distance = "euclidean") 
+
+Partitioning of squared Euclidean distance:
+              Inertia Proportion
+Total          30.127     1.0000
+Constrained     4.496     0.1492
+Unconstrained  25.631     0.8508
+
+Eigenvalues, and their contribution to the squared Euclidean distance 
+
+Importance of components:
+                        CAP1   MDS1   MDS2   MDS3    MDS4    MDS5    MDS6
+Eigenvalue            4.4961 8.5898 5.3473 3.2241 1.54710 1.19194 1.00756
+Proportion Explained  0.1492 0.2851 0.1775 0.1070 0.05135 0.03956 0.03344
+Cumulative Proportion 0.1492 0.4344 0.6118 0.7189 0.77022 0.80978 0.84323
+                         MDS7    MDS8    MDS9   MDS10   MDS11    MDS12    MDS13
+Eigenvalue            0.73013 0.55215 0.46823 0.38630 0.31579 0.270883 0.259720
+Proportion Explained  0.02423 0.01833 0.01554 0.01282 0.01048 0.008991 0.008621
+Cumulative Proportion 0.86746 0.88579 0.90133 0.91415 0.92463 0.933625 0.942246
+                         MDS14    MDS15    MDS16    MDS17    MDS18    MDS19
+Eigenvalue            0.246592 0.176299 0.154721 0.144873 0.136999 0.125511
+Proportion Explained  0.008185 0.005852 0.005136 0.004809 0.004547 0.004166
+Cumulative Proportion 0.950431 0.956282 0.961418 0.966227 0.970774 0.974940
+                         MDS20    MDS21    MDS22   MDS23   MDS24    MDS25
+Eigenvalue            0.104078 0.087100 0.076122 0.07049 0.06657 0.056103
+Proportion Explained  0.003455 0.002891 0.002527 0.00234 0.00221 0.001862
+Cumulative Proportion 0.978395 0.981286 0.983812 0.98615 0.98836 0.990224
+                         MDS26    MDS27    MDS28    MDS29     MDS30     MDS31
+Eigenvalue            0.054363 0.048557 0.034883 0.028891 0.0267639 0.0242702
+Proportion Explained  0.001804 0.001612 0.001158 0.000959 0.0008884 0.0008056
+Cumulative Proportion 0.992029 0.993640 0.994798 0.995757 0.9966455 0.9974511
+                         MDS32     MDS33     MDS34     MDS35    MDS36     MDS37
+Eigenvalue            0.020848 0.0181237 0.0130554 0.0098435 0.008585 0.0063349
+Proportion Explained  0.000692 0.0006016 0.0004333 0.0003267 0.000285 0.0002103
+Cumulative Proportion 0.998143 0.9987447 0.9991780 0.9995048 0.999790 1.0000000
+
+Accumulated constrained eigenvalues
+Importance of components:
+                       CAP1
+Eigenvalue            4.496
+Proportion Explained  1.000
+Cumulative Proportion 1.000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test significance of the model</span></span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(cap_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for capscale under reduced model
+Permutation: free
+Number of permutations: 999
+
+Model: capscale(formula = wavelet_data ~ PacFIN_Species_Code, data = meta_data, distance = "euclidean")
+         Df SumOfSqs      F Pr(&gt;F)    
+Model     1   4.4961 6.4904  0.001 ***
+Residual 37  25.6311                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: Test individual terms (like 'Species')</span></span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(cap_model, <span class="at">by =</span> <span class="st">"terms"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for capscale under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+Model: capscale(formula = wavelet_data ~ PacFIN_Species_Code, data = meta_data, distance = "euclidean")
+                    Df SumOfSqs      F Pr(&gt;F)    
+PacFIN_Species_Code  1   4.4961 6.4904  0.001 ***
+Residual            37  25.6311                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co">#VEGAN PLOT</span></span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>, <span class="at">type =</span> <span class="st">"n"</span>, <span class="at">main =</span> <span class="st">"CAP of Otolith Wavelet Shape"</span>)</span>
+<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>, <span class="at">col =</span> <span class="fu">as.factor</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code), <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">unique</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code), </span>
+<span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">unique</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code)), <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract CAP site scores</span></span>
+<span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a>cap_scores <span class="ot">&lt;-</span> <span class="fu">scores</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>)  <span class="co"># site (individual) scores</span></span>
+<span id="cb137-3"><a href="#cb137-3" aria-hidden="true" tabindex="-1"></a>scores_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cap_scores)</span>
+<span id="cb137-4"><a href="#cb137-4" aria-hidden="true" tabindex="-1"></a>scores_df<span class="sc">$</span>species <span class="ot">&lt;-</span> meta_data<span class="sc">$</span>PacFIN_Species_Code</span>
+<span id="cb137-5"><a href="#cb137-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-6"><a href="#cb137-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-7"><a href="#cb137-7" aria-hidden="true" tabindex="-1"></a><span class="co">#SD confidence interval</span></span>
+<span id="cb137-8"><a href="#cb137-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-9"><a href="#cb137-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a blank base plot</span></span>
+<span id="cb137-10"><a href="#cb137-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>, <span class="at">type =</span> <span class="st">"n"</span>, </span>
+<span id="cb137-11"><a href="#cb137-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"CAP of Otolith Wavelet Shape"</span>,</span>
+<span id="cb137-12"><a href="#cb137-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"CAP1"</span>, <span class="at">ylab =</span> <span class="st">"MDS1"</span>)</span>
+<span id="cb137-13"><a href="#cb137-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-14"><a href="#cb137-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Add points colored by species</span></span>
+<span id="cb137-15"><a href="#cb137-15" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>, </span>
+<span id="cb137-16"><a href="#cb137-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">as.factor</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code), </span>
+<span id="cb137-17"><a href="#cb137-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb137-18"><a href="#cb137-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-19"><a href="#cb137-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 1 standard deviation ellipses around each species group</span></span>
+<span id="cb137-20"><a href="#cb137-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiellipse</span>(cap_model, <span class="at">groups =</span> meta_data<span class="sc">$</span>PacFIN_Species_Code, </span>
+<span id="cb137-21"><a href="#cb137-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">display =</span> <span class="st">"sites"</span>, <span class="at">kind =</span> <span class="st">"sd"</span>, </span>
+<span id="cb137-22"><a href="#cb137-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">draw =</span> <span class="st">"lines"</span>)</span>
+<span id="cb137-23"><a href="#cb137-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-24"><a href="#cb137-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Add centroid “spiders” from group centroid to each point</span></span>
+<span id="cb137-25"><a href="#cb137-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ordispider</span>(cap_model, <span class="at">groups =</span> meta_data<span class="sc">$</span>PacFIN_Species_Code, </span>
+<span id="cb137-26"><a href="#cb137-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">display =</span> <span class="st">"sites"</span>, <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb137-27"><a href="#cb137-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-28"><a href="#cb137-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add legend</span></span>
+<span id="cb137-29"><a href="#cb137-29" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">levels</span>(<span class="fu">as.factor</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code)),</span>
+<span id="cb137-30"><a href="#cb137-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### 95% confidence interval</span></span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Base CAP plot</span></span>
+<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>, <span class="at">type =</span> <span class="st">"n"</span>, </span>
+<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"CAP of Otolith Shape (95% CI Ellipses)"</span>,</span>
+<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"CAP1"</span>, <span class="at">ylab =</span> <span class="st">"MDS1"</span>)</span>
+<span id="cb138-7"><a href="#cb138-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-8"><a href="#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Points</span></span>
+<span id="cb138-9"><a href="#cb138-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(cap_model, <span class="at">display =</span> <span class="st">"sites"</span>, </span>
+<span id="cb138-10"><a href="#cb138-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">as.factor</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code), </span>
+<span id="cb138-11"><a href="#cb138-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb138-12"><a href="#cb138-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-13"><a href="#cb138-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% CI ellipses</span></span>
+<span id="cb138-14"><a href="#cb138-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiellipse</span>(cap_model, </span>
+<span id="cb138-15"><a href="#cb138-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">groups =</span> meta_data<span class="sc">$</span>PacFIN_Species_Code, </span>
+<span id="cb138-16"><a href="#cb138-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">display =</span> <span class="st">"sites"</span>, </span>
+<span id="cb138-17"><a href="#cb138-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">kind =</span> <span class="st">"se"</span>, </span>
+<span id="cb138-18"><a href="#cb138-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">conf =</span> <span class="fl">0.95</span>, </span>
+<span id="cb138-19"><a href="#cb138-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb138-20"><a href="#cb138-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-21"><a href="#cb138-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: centroids via spiders</span></span>
+<span id="cb138-22"><a href="#cb138-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ordispider</span>(cap_model, </span>
+<span id="cb138-23"><a href="#cb138-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">groups =</span> meta_data<span class="sc">$</span>PacFIN_Species_Code, </span>
+<span id="cb138-24"><a href="#cb138-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">display =</span> <span class="st">"sites"</span>, </span>
+<span id="cb138-25"><a href="#cb138-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb138-26"><a href="#cb138-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-27"><a href="#cb138-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Legend</span></span>
+<span id="cb138-28"><a href="#cb138-28" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, </span>
+<span id="cb138-29"><a href="#cb138-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">levels</span>(<span class="fu">as.factor</span>(meta_data<span class="sc">$</span>PacFIN_Species_Code)),</span>
+<span id="cb138-30"><a href="#cb138-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(fish_data, <span class="st">"fish_data_measurements.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="comparing-different-morphometric-sources" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-different-morphometric-sources">Comparing different morphometric sources</h2>
+<ul>
+<li>This is where I compare caliper vs.&nbsp;ImageJ vs.&nbsp;ShapeR measurements. Plotting linear relationships between the different sources. Include a 1:1 line in the plot and compare linear fit of the different morphometric sources to the 1:1 line.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Caliper Comparison</span></span>
+<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fish_data, <span class="fu">aes</span>(<span class="at">x =</span> otolith.length, <span class="at">y =</span> Caliper_length_mm)) <span class="sc">+</span></span>
+<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"ShapeR Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start x-axis at 1</span></span>
+<span id="cb140-7"><a href="#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Caliper Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start y-axis at 1</span></span>
+<span id="cb140-8"><a href="#cb140-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Otolith Length (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb140-9"><a href="#cb140-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fish_data, <span class="fu">aes</span>(<span class="at">x =</span> otolith.width, <span class="at">y =</span> Caliper_width_mm)) <span class="sc">+</span></span>
+<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"ShapeR Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start x-axis at 1</span></span>
+<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Caliper Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start y-axis at 1</span></span>
+<span id="cb143-7"><a href="#cb143-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Otolith Width (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb143-8"><a href="#cb143-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ImageJ Comparison</span></span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fish_data, <span class="fu">aes</span>(<span class="at">x =</span> otolith.length, <span class="at">y =</span> ImageJ_length_pix_mm)) <span class="sc">+</span></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"ShapeR Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start x-axis at 1</span></span>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"ImageJ Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start y-axis at 1</span></span>
+<span id="cb147-8"><a href="#cb147-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Otolith Length (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb147-9"><a href="#cb147-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fish_data, <span class="fu">aes</span>(<span class="at">x =</span> otolith.width, <span class="at">y =</span> ImageJ_width_pix_mm)) <span class="sc">+</span></span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb149-3"><a href="#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb149-4"><a href="#cb149-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb149-5"><a href="#cb149-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"ShapeR Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start x-axis at 1</span></span>
+<span id="cb149-6"><a href="#cb149-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"ImageJ Measurement"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="cn">NA</span>)) <span class="sc">+</span>  <span class="co"># Start y-axis at 1</span></span>
+<span id="cb149-7"><a href="#cb149-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Otolith Width (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb149-8"><a href="#cb149-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 8 rows containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 8 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_smooth()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="VRML-SUNS-Otolith-Morphology_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="classifications-of-individuals" class="level1">
+<h1>Classifications of Individuals</h1>
+<ul>
+<li><p>This chunk of code is running a cross-validation analysis using Linear Discriminant Analysis (LDA) to classify fish to their species based on wavelet shape descriptors extracted from their otoliths.</p></li>
+<li><p>The cross validation classification estimate produces a missclassification error</p></li>
+</ul>
+<pre><code>-   **EX:** If you receive a misclassification error of 0.2051, this means 20.5% of fish were misclassified, or 79.5% were correctly classified
+
+-   May receive a "*Warning: variables are collinear*" warning - this comes from LDA beign applied to many correlated wavelet coefficients (common in shape analysis). It doesn't stop the analysis but warns that some predictors may be redundant.</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)     <span class="co"># For lda()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'MASS' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'MASS'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:rstatix':
+
+    select</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:patchwork':
+
+    area</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    select</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ipred)    <span class="co"># For errorest()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ipred' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define prediction function</span></span>
+<span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a>mypredict.lda <span class="ot">&lt;-</span> <span class="cf">function</span>(object, newdata) {</span>
+<span id="cb163-3"><a href="#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(object, <span class="at">newdata =</span> newdata)<span class="sc">$</span>class</span>
+<span id="cb163-4"><a href="#cb163-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb163-5"><a href="#cb163-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-6"><a href="#cb163-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data</span></span>
+<span id="cb163-7"><a href="#cb163-7" aria-hidden="true" tabindex="-1"></a>stdw <span class="ot">&lt;-</span> <span class="fu">getStdWavelet</span>(shape)</span>
+<span id="cb163-8"><a href="#cb163-8" aria-hidden="true" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">getMasterlist</span>(shape)<span class="sc">$</span>PacFIN_Species_Code)</span>
+<span id="cb163-9"><a href="#cb163-9" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">stdw =</span> stdw, <span class="at">PacFIN_Species_Code =</span> species)</span>
+<span id="cb163-10"><a href="#cb163-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-11"><a href="#cb163-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run cross-validation classification accuracy estimate</span></span>
+<span id="cb163-12"><a href="#cb163-12" aria-hidden="true" tabindex="-1"></a><span class="fu">errorest</span>(PacFIN_Species_Code <span class="sc">~</span> ., <span class="at">data =</span> dd, <span class="at">model =</span> lda, <span class="at">estimator =</span> <span class="st">"cv"</span>, </span>
+<span id="cb163-13"><a href="#cb163-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">predict =</span> mypredict.lda, <span class="at">est.para =</span> <span class="fu">control.errorest</span>(<span class="at">nboot =</span> <span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in lda.default(x, grouping, ...): variables are collinear</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear
+Warning in lda.default(x, grouping, ...): variables are collinear</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+errorest.data.frame(formula = PacFIN_Species_Code ~ ., data = dd, 
+    model = lda, predict = mypredict.lda, estimator = "cv", est.para = control.errorest(nboot = 1000))
+
+     10-fold cross-validation estimator of misclassification error 
+
+Misclassification error:  0.2051 </code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

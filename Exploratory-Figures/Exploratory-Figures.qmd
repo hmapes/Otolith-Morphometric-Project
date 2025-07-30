@@ -1,0 +1,196 @@
+---
+title: "NWFSC H&L Survey 2004 Vermilion/Sunset Rockfish Data"
+author: "Rachel Brooks"
+format: pdf
+editor: visual
+---
+
+Data acquired from John Harms and Anita Wray. Data tables include:
+
+-   On-board field sampling data,
+
+-   Genetic differentiation data between sunset and vermilion rockfish,
+
+-   Ages determined by the Newport Cooperative Ageing Lab.
+
+```{r, message = FALSE, warning=FALSE, echo=FALSE}
+
+library(ggplot2)
+library(devtools)
+library(tidyverse)
+library(kableExtra)
+
+data <- read.csv("NWFSC-H&L-2004-Vermilion-Sunset-Data.csv",header=TRUE)
+
+data <- data %>%
+  mutate(Species = recode(Species,
+                          "vermilion" = "Vermilion",
+                          "sunset" = "Sunset"))
+
+```
+
+# Summary Table
+
+Mean, Minimum, and Maximum Depth (m) of Vermilion and Sunset Rockfish encountered by Sex
+
+```{r table 1, message = FALSE, warning=FALSE, echo=FALSE}
+
+summary_depth <- data %>%
+  group_by(Species, Sex) %>%
+  summarize(
+    "Mean Depth (m)" = round(mean(Depth..m., na.rm = TRUE), 0),
+    "Min Depth (m)" = round(min(Depth..m., na.rm = TRUE), 0),
+    "Max Depth (m)" = round(max(Depth..m., na.rm = TRUE), 0),
+    .groups = "drop"
+  )
+
+knitr::kable(summary_depth, align = rep("c", ncol(summary_depth))) %>%
+kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center") %>%
+  row_spec(0, bold = TRUE, color = "white", background = "black") 
+
+```
+
+Count, Mean, Minimum, and Maximum Fork Length (cm) of Vermilion and Sunset Rockfish encountered by Sex
+
+```{r table 2, message = FALSE, warning=FALSE, echo=FALSE}
+
+summary_length <- data %>%
+  group_by(Species, Sex) %>%
+  summarize(
+    "# Of Lengths" = sum(!is.na(Fork.Length..cm.)),
+    "Mean Length (cm)" = round(mean(Fork.Length..cm., na.rm = TRUE), 0),
+    "Min Length (cm)" = round(min(Fork.Length..cm., na.rm = TRUE), 0),
+    "Max Length (cm)" = round(max(Fork.Length..cm., na.rm = TRUE), 0),
+    .groups = "drop"
+  )
+
+knitr::kable(summary_length, align = rep("c", ncol(summary_length))) %>%
+kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center") %>%
+  row_spec(0, bold = TRUE, color = "white", background = "black") 
+
+```
+
+Count, Mean, Minimum, and Maximum Age (years) of Vermilion and Sunset Rockfish encountered by Sex
+
+```{r table 3, message = FALSE, warning=FALSE, echo=FALSE}
+
+summary_age <- data %>%
+  group_by(Species, Sex) %>%
+  summarize(
+    "# Of Ages" = sum(!is.na(Age..years.)),
+    "Mean Age (yrs)" = round(mean(Age..years., na.rm = TRUE), 0),
+    "Min Age (yrs)" = round(min(Age..years., na.rm = TRUE), 0),
+    "Max Age (yrs)" = round(max(Age..years., na.rm = TRUE), 0),
+    .groups = "drop"
+  )
+
+knitr::kable(summary_age, align = rep("c", ncol(summary_age))) %>%
+kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center") %>%
+  row_spec(0, bold = TRUE, color = "white", background = "black") 
+
+```
+
+# Catch Density of Vermilion/Sunset
+
+```{r, warning=FALSE, echo=FALSE}
+
+#Change Long. from positivet to negative
+data$LONDD <- -abs(data$LONDD)
+
+location_data <- data %>% filter(Species %in% c("Vermilion", "Sunset"))
+
+# Round lat/long to create grid cells (e.g., 0.1 degree resolution)
+bubble_data <- location_data %>%
+  mutate(
+    lat_bin = round(LATDD, 1),
+    lon_bin = round(LONDD, 1)
+  ) %>%
+  count(Species, lat_bin, lon_bin, name = "Count")  # count fish per grid cell
+
+ggplot() +
+  borders("world", fill = "gray90", colour = "gray80") +
+  geom_point(
+    data = bubble_data,
+    aes(x = lon_bin, y = lat_bin, size = Count, color = Species),
+    alpha = 0.7
+  ) +
+  scale_size_continuous(name = "Catch Count", range = c(2, 10)) +
+  coord_fixed(xlim = c(-121, -117), ylim = c(31.75, 35)) +
+  theme_minimal() +
+  labs(
+    title = "",
+    x = "Longitude",
+    y = "Latitude"
+  )
+
+```
+
+# Proportion of Vermilion/Sunset by Depth
+
+```{r, warning=FALSE, echo=FALSE}
+
+# Create depth bins in 5-meter increments
+data$DepthBin <- cut(data$Depth..m., breaks = seq(0, max(data$Depth..m., na.rm = TRUE) + 10, by = 10), include.lowest = TRUE)
+
+# Summarize counts per DepthBin and Species
+summary_data <- data %>%
+  filter(Species %in% c("Vermilion", "Sunset")) %>%
+  group_by(DepthBin, Species) %>%
+  summarise(Count = n(), .groups = "drop")
+
+# Calculate total counts per DepthBin to get proportions
+summary_data <- summary_data %>%
+  group_by(DepthBin) %>%
+  mutate(TotalCount = sum(Count),
+         Proportion = Count / TotalCount) %>%
+  ungroup()
+
+ggplot(summary_data, aes(x = DepthBin, y = Proportion, fill = Species)) +
+  geom_bar(stat = "identity", position = "fill") +  # position="fill" makes bars 100% stacked with proportions
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = "",
+    x = "Depth Bin (m)",
+    y = "Proportion of Catch",
+    fill = "Species"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8))
+
+```
+
+# Length and Age Distribution by Depth
+
+```{r, warning=FALSE, echo=FALSE}
+
+# Length by Depth
+ggplot(data, aes(x = Depth..m., y = Fork.Length..cm., color = Species))+
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+      x = "Depth (m)",
+    y = "Fork Length (cm)",
+    title = ""
+  ) +
+  theme_minimal()
+
+# Age by Depth
+ggplot(data, aes(x = Depth..m., y = Age..years., color = Species))+
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Depth (m)",
+    y = "Age (years)",
+    title = ""
+  ) +
+  theme_minimal()
+```
